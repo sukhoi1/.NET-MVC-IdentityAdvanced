@@ -2,7 +2,7 @@
 
 namespace IdentityAdvanced.Infrastructure
 {
-    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+    public class IdentityDbInit : DropCreateDatabaseAlways<AppIdentityDbContext>
     {
         protected override void Seed(AppIdentityDbContext context)
         {
