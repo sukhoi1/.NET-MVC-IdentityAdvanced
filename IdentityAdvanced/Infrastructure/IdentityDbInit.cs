@@ -1,4 +1,7 @@
 ﻿using System.Data.Entity;
+using IdentityAdvanced.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IdentityAdvanced.Infrastructure
 {
@@ -12,7 +15,38 @@ namespace IdentityAdvanced.Infrastructure
 
         public void PerformInitialSetup(AppIdentityDbContext context)
         {
-            // initial configuration will go here
+            AppUserManager userMgr = new AppUserManager(new UserStore<AppUser>(context));
+            AppRoleManager roleMgr = new AppRoleManager(new RoleStore<AppRole>(context));
+
+            string roleName = "Administrators";
+            string userName = "Admin";
+            string password = "qqq111";
+            string email = "admin@example.com";
+
+            if (!roleMgr.RoleExists(roleName))
+            {
+                roleMgr.Create(new AppRole(roleName));
+            }
+
+            AppUser user = userMgr.FindByName(userName);
+            if (user == null)
+            {
+                userMgr.Create(new AppUser { UserName = userName, Email = email },
+                    password);
+                user = userMgr.FindByName(userName);
+            }
+
+            if (!userMgr.IsInRole(user.Id, roleName))
+            {
+                userMgr.AddToRole(user.Id, roleName);
+            }
+
+            foreach (AppUser dbUser in userMgr.Users)
+            {
+                dbUser.City = Cities.Paris;
+            }
+
+            context.SaveChanges();
         }
     }
 }

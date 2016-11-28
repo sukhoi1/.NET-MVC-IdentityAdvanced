@@ -199,6 +199,7 @@
     <Compile Include="Infrastructure\IdentityHelpers.cs" />
     <Compile Include="Infrastructure\PasswordValidatorOverriden.cs" />
     <Compile Include="Infrastructure\UserValidatorOverridden.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Cities.cs" />
     <Compile Include="Models\CreateModel.cs" />
