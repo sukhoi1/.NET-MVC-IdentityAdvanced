@@ -1,0 +1,12 @@
+﻿@using IdentityAdvanced.Models
+@model AppUser
+@{ ViewBag.Title = "UserProps"; }
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>City</label>
+        @Html.DropDownListFor(x => x.City, new SelectList(Enum.GetNames(typeof (Cities))))
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+}

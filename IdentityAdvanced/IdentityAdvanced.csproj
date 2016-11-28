@@ -200,6 +200,7 @@
     <Compile Include="Infrastructure\PasswordValidatorOverriden.cs" />
     <Compile Include="Infrastructure\UserValidatorOverridden.cs" />
     <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Models\Cities.cs" />
     <Compile Include="Models\CreateModel.cs" />
     <Compile Include="Models\RoleEditModel.cs" />
     <Compile Include="Models\RoleModificationModel.cs" />
@@ -227,6 +228,7 @@
     <Content Include="Views\RoleAdmin\Create.cshtml" />
     <Content Include="Views\RoleAdmin\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\UserProps.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
